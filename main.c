@@ -465,24 +465,7 @@ int main(void) {
       }
     } else if (state == STATE_CLEAR) {
       if (IsKeyPressed(KEY_ENTER)) {
-        if (level < 3) {
-          level++;
-          selected_level = level;
-          InitLevel(level, bricks, &breakable_left);
-          ResetBalls(balls, paddle);
-          paddle_target_w = BASE_PADDLE_W;
-          paddle.width = BASE_PADDLE_W;
-          paddle.x = PLAY_X + PLAY_W * 0.5f - paddle.width * 0.5f;
-          speed_state = 0;
-          speed_timer = 0.0f;
-          for (int i = 0; i < MAX_POWERUPS; i++)
-            powerups[i].active = false;
-          for (int i = 0; i < MAX_PARTICLES; i++)
-            particles[i].active = false;
-          state = STATE_PLAY;
-        } else {
-          state = STATE_MENU;
-        }
+        state = STATE_MENU;
       }
     } else if (state == STATE_PLAY) {
       if (IsKeyPressed(KEY_P)) {
